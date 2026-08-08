@@ -11,149 +11,133 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: '#0a0a0a',
-                        cardBg: '#121212',
-                        cardHover: '#1a1a1a',
-                        borderSubtle: '#262626',
-                        accentGray: '#888888',
+                        ink: '#111111',
+                        paper: '#FFFFFF',
+                        surface: '#F6F6F4',
+                        line: '#E4E4E1',
+                        muted: '#6B6B68',
                     },
                     fontFamily: {
+                        serif: ['"Fraunces"', 'serif'],
                         sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Inter & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Fraunces (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f3f4f6; }
-        .glass-nav { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .hero-glow {
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-        /* Custom scrollbar */
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #111111; }
+        h1, h2, h3, .font-serif { font-family: 'Fraunces', serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555555; }
+        ::-webkit-scrollbar-track { background: #F6F6F4; }
+        ::-webkit-scrollbar-thumb { background: #C9C9C5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A9A9A5; }
+        .eyebrow { letter-spacing: 0.12em; }
     </style>
 </head>
-<body class="bg-dark text-gray-100 antialiased selection:bg-white selection:text-black">
+<body class="bg-paper text-ink antialiased selection:bg-ink selection:text-white">
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-borderSubtle">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-line">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#hero" class="text-lg font-bold tracking-tight text-white flex items-center gap-2 group">
-                <span class="w-3 h-3 bg-white rounded-full transition-transform group-hover:scale-125"></span>
+            <a href="#hero" class="text-lg font-serif font-semibold tracking-tight text-ink flex items-center gap-2">
                 VIVIAN AMADI
             </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#strengths" class="hover:text-white transition-colors">Core Strengths</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#certifications" class="hover:text-white transition-colors">Certifications</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
+                <a href="#about" class="hover:text-ink transition-colors">About</a>
+                <a href="#strengths" class="hover:text-ink transition-colors">Core Strengths</a>
+                <a href="#projects" class="hover:text-ink transition-colors">Projects</a>
+                <a href="#certifications" class="hover:text-ink transition-colors">Certifications</a>
+                <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-white text-black rounded-lg hover:bg-gray-200 transition-all shadow-sm">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-ink text-white rounded-lg hover:bg-black/80 transition-all">
                     Get in Touch
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-ink focus:outline-none p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-borderSubtle px-6 py-4 space-y-3">
-            <a href="#about" class="block text-gray-300 hover:text-white font-medium py-1">About</a>
-            <a href="#strengths" class="block text-gray-300 hover:text-white font-medium py-1">Core Strengths</a>
-            <a href="#projects" class="block text-gray-300 hover:text-white font-medium py-1">Projects</a>
-            <a href="#certifications" class="block text-gray-300 hover:text-white font-medium py-1">Certifications</a>
-            <a href="#contact" class="block text-gray-300 hover:text-white font-medium py-1">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-paper border-b border-line px-6 py-4 space-y-3">
+            <a href="#about" class="block text-ink/80 hover:text-ink font-medium py-1">About</a>
+            <a href="#strengths" class="block text-ink/80 hover:text-ink font-medium py-1">Core Strengths</a>
+            <a href="#projects" class="block text-ink/80 hover:text-ink font-medium py-1">Projects</a>
+            <a href="#certifications" class="block text-ink/80 hover:text-ink font-medium py-1">Certifications</a>
+            <a href="#contact" class="block text-ink/80 hover:text-ink font-medium py-1">Contact</a>
         </div>
     </header>
 
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-20 px-6 overflow-hidden">
-        <div class="hero-glow top-1/4 -left-20"></div>
-        <div class="hero-glow bottom-10 right-0"></div>
-        
+    <section id="hero" class="relative pt-32 pb-20 px-6 bg-surface border-b border-line overflow-hidden">
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div class="lg:col-span-7 space-y-6 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardBg border border-borderSubtle text-xs font-medium text-gray-300">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Available for Remote Worldwide • UTC+1
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-line text-xs font-medium text-muted">
+                    <span class="w-1.5 h-1.5 rounded-full bg-ink"></span>
+                    Available for Remote Worldwide &middot; UTC+1
                 </div>
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
-                    Email Designer & HTML Developer <span class="text-gray-400 font-normal">for DTC Ecommerce Brands</span>
+                <h1 class="text-4xl sm:text-6xl font-serif font-semibold text-ink tracking-tight leading-[1.05]">
+                    Email Designer & HTML Developer <span class="text-muted font-normal">for DTC Ecommerce Brands</span>
                 </h1>
-                <p class="text-lg text-gray-400 font-normal max-w-2xl leading-relaxed">
-                    I design and build ecommerce emails that look on-brand, land in the inbox, and turn opens into revenue. From Figma mockup to hand-coded, cross-client-tested HTML.
+                <p class="text-lg text-muted font-normal max-w-2xl leading-relaxed">
+                    Most email templates fall apart somewhere between the design file and the actual inbox. I close that gap; Figma mockup to hand-coded HTML, tested until it holds up everywhere it needs to.
                 </p>
-                
+
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="#projects" class="px-6 py-3.5 bg-white text-black font-semibold text-sm rounded-xl hover:bg-gray-200 transition-all flex items-center gap-2 shadow-md">
+                    <a href="#projects" class="px-6 py-3.5 bg-ink text-white font-semibold text-sm rounded-xl hover:bg-black/80 transition-all flex items-center gap-2">
                         <span>View Featured Projects</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="#contact" class="px-6 py-3.5 bg-cardBg border border-borderSubtle text-white font-semibold text-sm rounded-xl hover:bg-cardHover transition-all">
+                    <a href="#contact" class="px-6 py-3.5 bg-white border border-line text-ink font-semibold text-sm rounded-xl hover:bg-surface transition-all">
                         Let's Talk
                     </a>
                 </div>
 
-                <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-borderSubtle text-sm">
+                <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-line text-sm">
                     <div>
-                        <div class="text-white font-bold text-xl">100%</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Table-Based Code</div>
+                        <div class="text-ink font-serif font-semibold text-xl">100%</div>
+                        <div class="text-muted text-xs mt-0.5">Table-Based Code</div>
                     </div>
                     <div>
-                        <div class="text-white font-bold text-xl">Klaviyo</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Certified Expert</div>
+                        <div class="text-ink font-serif font-semibold text-xl">Klaviyo</div>
+                        <div class="text-muted text-xs mt-0.5">Certified Expert</div>
                     </div>
                     <div>
-                        <div class="text-white font-bold text-xl">Zero-Fix</div>
-                        <div class="text-gray-400 text-xs mt-0.5">Cross-Client QA</div>
+                        <div class="text-ink font-serif font-semibold text-xl">Zero-Fix</div>
+                        <div class="text-muted text-xs mt-0.5">Cross-Client QA</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Hero Avatar / Visual Card -->
+            <!-- Hero Photo Card -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-full max-w-md">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-gray-700 to-gray-900 rounded-3xl blur-md opacity-50"></div>
-                    <div class="relative bg-cardBg border border-borderSubtle rounded-3xl p-6 shadow-2xl overflow-hidden flex flex-col items-center">
-                        <div class="w-full h-72 rounded-2xl bg-gradient-to-b from-gray-900 to-black overflow-hidden flex items-center justify-center border border-borderSubtle relative group">
-                            <!-- High quality professional portrait fallback with image tag -->
-                            <img src="Gemini_Generated_Image_q5se2vq5se2vq5se-removebg-preview (1).png" alt="Vivian Amadi" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/121212/ffffff?text=Vivian+Amadi'">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-                            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                                <div>
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Lead Developer</span>
-                                    <h3 class="text-white font-bold text-base">Vivian Amadi</h3>
-                                </div>
-                                <span class="px-2.5 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs text-white border border-white/20">Verified</span>
-                            </div>
+                    <div class="relative bg-white border border-line rounded-3xl p-6 shadow-sm overflow-hidden flex flex-col items-center">
+                        <div class="w-full h-80 rounded-2xl bg-surface overflow-hidden flex items-end justify-center border border-line relative">
+                            <img src="assets/vivian-working.png" alt="Vivian Amadi at work" class="h-full w-auto object-contain object-bottom" onerror="this.onerror=null; this.src='https://placehold.co/400x480/F6F6F4/111111?text=Vivian+Amadi';">
                         </div>
 
                         <div class="w-full mt-6 space-y-3">
-                            <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+                            <div class="flex items-center justify-between text-xs text-muted px-1">
                                 <span>Direct Contact</span>
-                                <span class="text-white font-mono">ijeomaamadi100@gmail.com</span>
+                                <span class="text-ink font-mono">ijeomaamadi100@gmail.com</span>
                             </div>
-                            <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+                            <div class="flex items-center justify-between text-xs text-muted px-1">
                                 <span>Phone / WhatsApp</span>
-                                <span class="text-white font-mono">+234 803 466 1946</span>
+                                <span class="text-ink font-mono">+234 803 466 1946</span>
                             </div>
                             <div class="flex items-center gap-3 pt-2">
-                                <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="flex-1 py-2.5 bg-black border border-borderSubtle rounded-xl text-center text-xs font-medium text-gray-300 hover:text-white hover:border-gray-500 transition-all flex items-center justify-center gap-2">
-                                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn Profile
+                                <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="flex-1 py-2.5 bg-surface border border-line rounded-xl text-center text-xs font-medium text-ink/80 hover:text-ink hover:border-ink/30 transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
                                 </a>
-                                <a href="mailto:ijeomaamadi100@gmail.com" class="py-2.5 px-4 bg-white text-black rounded-xl text-xs font-semibold hover:bg-gray-200 transition-all flex items-center justify-center">
+                                <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="flex-1 py-2.5 bg-surface border border-line rounded-xl text-center text-xs font-medium text-ink/80 hover:text-ink hover:border-ink/30 transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-brands fa-facebook text-sm"></i> Facebook
+                                </a>
+                                <a href="mailto:ijeomaamadi100@gmail.com" class="py-2.5 px-4 bg-ink text-white rounded-xl text-xs font-semibold hover:bg-black/80 transition-all flex items-center justify-center">
                                     <i class="fa-solid fa-envelope"></i>
                                 </a>
                             </div>
@@ -164,47 +148,51 @@
         </div>
     </section>
 
-    <section id="about" class="py-24 px-6 border-t border-borderSubtle bg-dark/50">
+    <section id="about" class="py-24 px-6 border-b border-line">
         <div class="max-w-5xl mx-auto space-y-12">
             <div class="text-center space-y-3">
-                <span class="text-xs uppercase tracking-widest text-accentGray font-bold">Professional Summary</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Owning the Full Pipeline from Mockup to Inbox</h2>
+                <span class="text-xs uppercase eyebrow text-muted font-semibold">Professional Summary</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Owning the Full Pipeline from Mockup to Inbox</h2>
             </div>
-            
-            <div class="bg-cardBg border border-borderSubtle rounded-3xl p-8 sm:p-12 shadow-xl relative">
-                <div class="absolute top-0 right-0 p-8 text-gray-800 opacity-20 hidden sm:block">
-                    <i class="fa-solid fa-quote-right text-8xl"></i>
-                </div>
-                <p class="text-lg text-gray-300 leading-relaxed relative z-10">
-                    HTML email developer specializing in building and fixing email templates and signatures that render correctly across Gmail, Outlook, and Apple Mail. I hand-code table-based, inline CSS email code that holds up in dark mode and on mobile. I design in Figma or Canva before opening VS Code, taking projects from mockup to tested, production-ready HTML.
-                </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-10 border-t border-borderSubtle">
-                    <div class="flex items-start gap-4">
-                        <div class="p-3 bg-black border border-borderSubtle rounded-xl text-white">
-                            <i class="fa-solid fa-pen-nib"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm">Visual Design</h4>
-                            <p class="text-gray-400 text-xs mt-1">Figma mockups & Canva design systems.</p>
-                        </div>
+            <div class="bg-surface border border-line rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                <div class="md:col-span-3 flex justify-center">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-white border border-line overflow-hidden flex items-center justify-center">
+                        <img src="assets/vivian-headshot.png" alt="Portrait of Vivian Amadi" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFFFFF/111111?text=VA';">
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="p-3 bg-black border border-borderSubtle rounded-xl text-white">
-                            <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="md:col-span-9 space-y-10">
+                    <p class="text-lg text-ink/80 leading-relaxed">
+                        I build and fix email templates for a living, the kind that actually render the way they're supposed to in Gmail, Outlook, and Apple Mail, not just in the preview pane. Design comes first, in Figma or Canva. Then I hand-code it myself: table-based, inline CSS, checked in dark mode and on mobile before it ever reaches a client's list.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-line">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-ink font-semibold text-sm">Visual Design</h4>
+                                <p class="text-muted text-xs mt-1">Figma mockups & Canva design systems.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm">Bulletproof Build</h4>
-                            <p class="text-gray-400 text-xs mt-1">Table-based HTML, VML fallbacks & Shopify Liquid.</p>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-ink font-semibold text-sm">Bulletproof Build</h4>
+                                <p class="text-muted text-xs mt-1">Table-based HTML, VML fallbacks & Shopify Liquid.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="p-3 bg-black border border-borderSubtle rounded-xl text-white">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm">Deliverability</h4>
-                            <p class="text-gray-400 text-xs mt-1">SPF/DKIM/DMARC audits & spam filter optimization.</p>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-ink font-semibold text-sm">Deliverability</h4>
+                                <p class="text-muted text-xs mt-1">SPF/DKIM/DMARC audits & spam filter optimization.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -212,381 +200,343 @@
         </div>
     </section>
 
-    <section id="strengths" class="py-24 px-6 border-t border-borderSubtle">
+    <section id="strengths" class="py-24 px-6 border-b border-line bg-surface">
         <div class="max-w-7xl mx-auto space-y-16">
             <div class="text-center space-y-3">
-                <span class="text-xs uppercase tracking-widest text-accentGray font-bold">Capabilities</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Core Strengths & Technical Stack</h2>
-                <p class="text-gray-400 max-w-xl mx-auto text-sm">Specialized expertise built for high-performing direct-to-consumer ecommerce operations.</p>
+                <span class="text-xs uppercase eyebrow text-muted font-semibold">Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Core Strengths & Technical Stack</h2>
+                <p class="text-muted max-w-xl mx-auto text-sm">What I actually get hired for, over and over, on DTC email projects.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Strength 1 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 hover:border-gray-600 transition-all group flex flex-col justify-between">
+                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform">
+                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
                             <i class="fa-solid fa-palette text-lg"></i>
                         </div>
-                        <h3 class="text-white font-bold text-lg mb-3">Design & Layout</h3>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Figma & Canva workflows</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Email signature development</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Mobile-first responsive layout</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Dark mode CSS overrides</li>
+                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Design & Layout</h3>
+                        <ul class="space-y-2 text-sm text-muted">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Figma & Canva workflows</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Email signature development</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Mobile-first responsive layout</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Dark mode CSS overrides</li>
                         </ul>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle/55 text-xs text-accentGray font-mono">UI / UX / Visual</div>
+                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">UI / UX / Visual</div>
                 </div>
 
                 <!-- Strength 2 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 hover:border-gray-600 transition-all group flex flex-col justify-between">
+                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform">
+                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
                             <i class="fa-solid fa-laptop-code text-lg"></i>
                         </div>
-                        <h3 class="text-white font-bold text-lg mb-3">Build & Code</h3>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Hand-coded table-based HTML</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Klaviyo template mastery</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Shopify Liquid tags & filters</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Outlook VML & Cross-QA</li>
+                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Build & Code</h3>
+                        <ul class="space-y-2 text-sm text-muted">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Hand-coded table-based HTML</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Klaviyo template mastery</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Shopify Liquid tags & filters</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Outlook VML & Cross-QA</li>
                         </ul>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle/55 text-xs text-accentGray font-mono">Development</div>
+                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Development</div>
                 </div>
 
                 <!-- Strength 3 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 hover:border-gray-600 transition-all group flex flex-col justify-between">
+                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform">
+                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
                             <i class="fa-solid fa-envelopes-bulk text-lg"></i>
                         </div>
-                        <h3 class="text-white font-bold text-lg mb-3">Deliverability</h3>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> SPF/DKIM/DMARC diagnosis</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Spam filter optimization</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Text-to-image ratio tuning</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Netlify custom headers deployment</li>
+                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Deliverability</h3>
+                        <ul class="space-y-2 text-sm text-muted">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> SPF/DKIM/DMARC diagnosis</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Spam filter optimization</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Text-to-image ratio tuning</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Netlify custom headers deployment</li>
                         </ul>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle/55 text-xs text-accentGray font-mono">Infrastructure</div>
+                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Infrastructure</div>
                 </div>
 
                 <!-- Strength 4 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 hover:border-gray-600 transition-all group flex flex-col justify-between">
+                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform">
+                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
                             <i class="fa-solid fa-chart-line text-lg"></i>
                         </div>
-                        <h3 class="text-white font-bold text-lg mb-3">Performance</h3>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Dynamic Liquid variables</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Interactive vCard signature integration</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> Conversion-focused CTAs</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-gray-200"></i> GitHub Pages deployment</li>
+                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Performance</h3>
+                        <ul class="space-y-2 text-sm text-muted">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Dynamic Liquid variables</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Interactive vCard signature integration</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Conversion-focused CTAs</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> GitHub Pages deployment</li>
                         </ul>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle/55 text-xs text-accentGray font-mono">Ecommerce Growth</div>
+                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Ecommerce Growth</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-24 px-6 border-t border-borderSubtle bg-dark/50">
+    <section id="projects" class="py-24 px-6 border-b border-line">
         <div class="max-w-7xl mx-auto space-y-16">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div class="space-y-3">
-                    <span class="text-xs uppercase tracking-widest text-accentGray font-bold">Case Studies</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Relevant Project Experience</h2>
+                    <span class="text-xs uppercase eyebrow text-muted font-semibold">Case Studies</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Relevant Project Experience</h2>
                 </div>
-                <p class="text-gray-400 text-sm max-w-md">Real-world DTC brand projects showcasing full-pipeline design, coding, signatures, and deliverability solutions.</p>
+                <p class="text-muted text-sm max-w-md">A few real projects that show the actual range — design in Figma, build in Klaviyo, and the deliverability work most people never see.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1: Signature Demo -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1: LUMÉ Skincare -->
+                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">Law Firm</span>
-                            <span class="text-xs font-mono text-accentGray">Netlify + vCard</span>
+                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">DTC Skincare</span>
+                            <span class="text-xs font-mono text-muted">Figma → GitHub</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Nexus Legal Partners</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Interactive HTML Email Signature</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Table-based HTML with hover-state CSS, Netlify custom headers for cross-origin vCard downloads, and Outlook VML button fallbacks.
+                        <h3 class="text-xl font-serif font-semibold text-ink">LUMÉ Skincare</h3>
+                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Product Launch Email</p>
+                        <p class="text-sm text-ink/70 leading-relaxed">
+                            Started as a Figma mockup, then got hand-coded from scratch — table-based structure, Google Fonts, and an Outlook VML fix so the button actually worked everywhere.
                         </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Hover effects & vCard download</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Netlify _headers deployment</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Outlook VML save-contact button</div>
+                        <div class="space-y-2 pt-2 text-xs text-ink/70">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Figma mockup to production HTML</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Outlook VML CTA rendering</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> GitHub Pages live hosting</div>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Live Demo Active</span>
-                        <a href="https://adaeze-signature-demo.netlify.app" target="_blank" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project 2: LUMÉ Skincare -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">DTC Skincare</span>
-                            <span class="text-xs font-mono text-accentGray">Figma → GitHub</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">LUMÉ Skincare</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Product Launch Email</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Designed in Figma and hand-coded from scratch in VS Code with table-based structure, Google Fonts integration, and Outlook VML button fix.
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Figma mockup to production HTML</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Outlook VML CTA rendering</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> GitHub Pages live hosting</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/-lume-skincare-email/" target="_blank" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
+                        <a href="https://ijay-techwriter.github.io/-lume-skincare-email/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     </div>
                 </div>
 
                 <!-- Project 3: Zuri Wellness -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">Health & Wellness</span>
-                            <span class="text-xs font-mono text-accentGray">Canva + Klaviyo</span>
+                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Health & Wellness</span>
+                            <span class="text-xs font-mono text-muted">Canva + Klaviyo</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Zuri Wellness Co.</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Klaviyo Template + Ad Creative</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Designed multi-channel campaign assets in Canva and built the Klaviyo email template with first_name personalisation tags and product blocks.
+                        <h3 class="text-xl font-serif font-semibold text-ink">Zuri Wellness Co.</h3>
+                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Klaviyo Template + Ad Creative</p>
+                        <p class="text-sm text-ink/70 leading-relaxed">
+                            Built the Klaviyo template with personalisation that goes beyond a first name, plus matching Canva assets for the rest of the campaign.
                         </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Klaviyo template & personalisation</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Cleaned exported HTML & VML CTAs</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Multi-channel Canva assets</div>
+                        <div class="space-y-2 pt-2 text-xs text-ink/70">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Klaviyo template & personalisation</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Cleaned exported HTML & VML CTAs</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Multi-channel Canva assets</div>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/zuri-wellness-email/" target="_blank" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
+                        <a href="https://ijay-techwriter.github.io/zuri-wellness-email/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     </div>
                 </div>
 
                 <!-- Project 4: Noir Flow -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">Functional Beverage</span>
-                            <span class="text-xs font-mono text-accentGray">Dark Premium</span>
+                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Functional Beverage</span>
+                            <span class="text-xs font-mono text-muted">Dark Premium</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Noir Flow</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Dark Premium Klaviyo Template</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Mobile-optimised dark theme template built for the 80% of subscribers opening on mobile devices, featuring dynamic subscriber tags.
+                        <h3 class="text-xl font-serif font-semibold text-ink">Noir Flow</h3>
+                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Dark Premium Klaviyo Template</p>
+                        <p class="text-sm text-ink/70 leading-relaxed">
+                            Most of this brand's list opens on mobile, so that's what got built for first — a dark, premium template that still holds up on a small screen, with dynamic tags handling the personalisation.
                         </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Mobile-first dark theme layout</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Dynamic personalisation tags</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Consistent dark visual styling</div>
+                        <div class="space-y-2 pt-2 text-xs text-ink/70">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Mobile-first dark theme layout</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Dynamic personalisation tags</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Consistent dark visual styling</div>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/Noir-Flow/" target="_blank" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
+                        <div class="w-8 h-8 rounded-full bg-surface border border-line flex items-center justify-center text-ink"><i class="fa-solid fa-check text-xs"></i></div>
                     </div>
                 </div>
 
-                <!-- Project 5: KOVA Active -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <!-- Project 4: Deliverability Audit -->
+                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">Shopify Activewear</span>
-                            <span class="text-xs font-mono text-accentGray">Liquid Templating</span>
+                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Infrastructure & Audit</span>
+                            <span class="text-xs font-mono text-muted">DMARC / Spam Fix</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">KOVA Active</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Shopify Order Confirmation Rebuild</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Rebuilt broken hardcoded confirmation emails using Shopify Liquid loops, money filters, and conditional VIP messaging blocks.
+                        <h3 class="text-xl font-serif font-semibold text-ink">Deliverability Audit & SolVibe</h3>
+                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Spam Diagnosis & Order Confirmation</p>
+                        <p class="text-sm text-ink/70 leading-relaxed">
+                            Traced a client's spam problem back to a DMARC misconfiguration showing up across every major mail provider. Then fixed SolVibe's order confirmation email, which had been tripping spam filters from too many images and not enough text.
                         </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Dynamic Liquid line_items loop</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Conditional VIP free shipping block</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Client-friendly demo version</div>
+                        <div class="space-y-2 pt-2 text-xs text-ink/70">
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> SPF / DKIM / DMARC header analysis</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> 70/30 text-to-image ratio fix</div>
+                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Cross-provider inbox placement check</div>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/kova-active-order-email/demo-version/" target="_blank" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
-
-                <!-- Project 6: Deliverability Audit & SolVibe -->
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-7 flex flex-col justify-between hover:border-gray-500 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-gray-300">Infrastructure & Audit</span>
-                            <span class="text-xs font-mono text-accentGray">DMARC / Spam Fix</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Deliverability Audit & SolVibe</h3>
-                        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Spam Diagnosis & Order Confirmation</p>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Root-cause DMARC authentication audits across major mail providers and SolVibe order confirmation spam-filter restructuring (70/30 text-to-image).
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-gray-400">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> SPF / DKIM / DMARC header analysis</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> SolVibe 70/30 text-to-image ratio</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-white"></i> Apex Global Logistics dark mode signature</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-white">Status: Production Verified</span>
-                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white"><i class="fa-solid fa-check text-xs"></i></div>
+                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Status: Production Verified</span>
+                        <div class="w-8 h-8 rounded-full bg-surface border border-line flex items-center justify-center text-ink"><i class="fa-solid fa-check text-xs"></i></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="py-24 px-6 border-t border-borderSubtle">
+    <section id="certifications" class="py-24 px-6 border-b border-line bg-surface">
         <div class="max-w-5xl mx-auto space-y-16">
             <div class="text-center space-y-3">
-                <span class="text-xs uppercase tracking-widest text-accentGray font-bold">Credentials</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Education & Certifications</h2>
-                <p class="text-gray-400 text-sm">Verified professional qualifications in email marketing automation and deliverability.</p>
+                <span class="text-xs uppercase eyebrow text-muted font-semibold">Credentials</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Education & Certifications</h2>
+                <p class="text-muted text-sm">The training behind the work above — not just badges, things I actually use.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Cert 1 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <div class="bg-white border border-line rounded-2xl p-6 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                        <div class="w-10 h-10 bg-surface border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-award"></i>
                         </div>
-                        <h3 class="text-white font-bold text-base">Klaviyo Practitioner</h3>
-                        <p class="text-xs text-gray-400">Certified by Klaviyo. Campaign architecture, segmentation, and flows setup.</p>
+                        <h3 class="text-ink font-serif font-semibold text-base">Klaviyo Practitioner</h3>
+                        <p class="text-xs text-muted">Certified by Klaviyo. Campaign architecture, segmentation, and flows setup.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Certified</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                    <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Certified</span>
+                        <a href="#contact" class="text-xs font-semibold text-ink hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
                     </div>
                 </div>
 
                 <!-- Cert 2 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <div class="bg-white border border-line rounded-2xl p-6 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                        <div class="w-10 h-10 bg-surface border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
-                        <h3 class="text-white font-bold text-base">HubSpot Email Marketing</h3>
-                        <p class="text-xs text-gray-400">HubSpot Academy certified in email marketing and Content Hub software.</p>
+                        <h3 class="text-ink font-serif font-semibold text-base">HubSpot Email Marketing</h3>
+                        <p class="text-xs text-muted">HubSpot Academy certified in email marketing and Content Hub software.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Certified</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                    <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Certified</span>
+                        <a href="#contact" class="text-xs font-semibold text-ink hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
                     </div>
                 </div>
 
                 <!-- Cert 3 -->
-                <div class="bg-cardBg border border-borderSubtle rounded-2xl p-6 flex flex-col justify-between hover:border-gray-500 transition-all">
+                <div class="bg-white border border-line rounded-2xl p-6 flex flex-col justify-between hover:border-ink/30 transition-all">
                     <div class="space-y-4">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                        <div class="w-10 h-10 bg-surface border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
-                        <h3 class="text-white font-bold text-base">HND Business Admin</h3>
-                        <p class="text-xs text-gray-400">Covenant Polytechnic • TEFL Certified & self-directed email dev training.</p>
+                        <h3 class="text-ink font-serif font-semibold text-base">HND Business Admin</h3>
+                        <p class="text-xs text-muted">Covenant Polytechnic &middot; TEFL Certified & self-directed email dev training.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-borderSubtle flex items-center justify-between">
-                        <span class="text-xs font-mono text-emerald-400">Graduated</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                    <div class="mt-6 pt-4 border-t border-line flex items-center justify-between">
+                        <span class="text-xs font-mono text-ink/70">Graduated</span>
+                        <a href="#contact" class="text-xs font-semibold text-ink hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 border-t border-borderSubtle bg-dark/50">
+    <section id="contact" class="py-24 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-5 space-y-6">
-                <span class="text-xs uppercase tracking-widest text-accentGray font-bold">Get In Touch</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Let's Build Emails That Convert.</h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Ready to elevate your DTC brand's email program or signature deliverability? Reach out directly via email, phone, or send a message using the form.
+                <span class="text-xs uppercase eyebrow text-muted font-semibold">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Let's Build Emails That Convert.</h2>
+                <p class="text-muted text-sm leading-relaxed">
+                    If your emails need to look better, work better, or actually land in the inbox, that's what I do. Reach out directly, or send a message with the form.
                 </p>
 
                 <div class="space-y-4 pt-4">
-                    <div class="flex items-center gap-4 p-4 bg-cardBg border border-borderSubtle rounded-2xl">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
+                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-400">Email Me</div>
-                            <a href="mailto:ijeomaamadi100@gmail.com" class="text-white font-medium text-sm hover:underline">ijeomaamadi100@gmail.com</a>
+                            <div class="text-xs text-muted">Email Me</div>
+                            <a href="mailto:ijeomaamadi100@gmail.com" class="text-ink font-medium text-sm hover:underline">ijeomaamadi100@gmail.com</a>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-4 p-4 bg-cardBg border border-borderSubtle rounded-2xl">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
+                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-400">Phone / WhatsApp</div>
-                            <span class="text-white font-medium text-sm">+234 803 466 1946</span>
+                            <div class="text-xs text-muted">Phone / WhatsApp</div>
+                            <span class="text-ink font-medium text-sm">+234 803 466 1946</span>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-4 p-4 bg-cardBg border border-borderSubtle rounded-2xl">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
+                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-brands fa-linkedin"></i>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-400">LinkedIn Profile</div>
-                            <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="text-white font-medium text-sm hover:underline">linkedin.com/in/vivian-amadi-ijeoma</a>
+                            <div class="text-xs text-muted">LinkedIn Profile</div>
+                            <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="text-ink font-medium text-sm hover:underline">linkedin.com/in/vivian-amadi-ijeoma</a>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-4 p-4 bg-cardBg border border-borderSubtle rounded-2xl">
-                        <div class="w-10 h-10 bg-black border border-borderSubtle rounded-xl flex items-center justify-center text-white">
+                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
+                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-muted">Facebook Profile</div>
+                            <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="text-ink font-medium text-sm hover:underline">facebook.com/vivian.amadi</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
+                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
                             <i class="fa-solid fa-globe"></i>
                         </div>
                         <div>
-                            <div class="text-xs text-gray-400">Availability</div>
-                            <span class="text-white font-medium text-sm">Remote • Global Teams • Available Immediately</span>
+                            <div class="text-xs text-muted">Availability</div>
+                            <span class="text-ink font-medium text-sm">Remote &middot; Global Teams &middot; Available Immediately</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7">
-                <div class="bg-cardBg border border-borderSubtle rounded-3xl p-8 sm:p-10 shadow-2xl">
-                    <h3 class="text-xl font-bold text-white mb-6">Send a Direct Message</h3>
+                <div class="bg-surface border border-line rounded-3xl p-8 sm:p-10">
+                    <h3 class="text-xl font-serif font-semibold text-ink mb-6">Send a Direct Message</h3>
                     <form id="contact-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div class="space-y-2">
-                                <label class="text-xs font-semibold text-gray-300 uppercase">Your Name</label>
-                                <input type="text" id="sender-name" required class="w-full bg-black border border-borderSubtle rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="e.g. Sarah Jenkins">
+                                <label class="text-xs font-semibold text-muted uppercase">Your Name</label>
+                                <input type="text" id="sender-name" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="e.g. Sarah Jenkins">
                             </div>
                             <div class="space-y-2">
-                                <label class="text-xs font-semibold text-gray-300 uppercase">Your Email</label>
-                                <input type="email" id="sender-email" required class="w-full bg-black border border-borderSubtle rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="sarah@dtcbrand.com">
+                                <label class="text-xs font-semibold text-muted uppercase">Your Email</label>
+                                <input type="email" id="sender-email" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="sarah@dtcbrand.com">
                             </div>
                         </div>
                         <div class="space-y-2">
-                            <label class="text-xs font-semibold text-gray-300 uppercase">Subject / Project Type</label>
-                            <input type="text" id="sender-subject" required class="w-full bg-black border border-borderSubtle rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="e.g. Klaviyo Template Design & Build">
+                            <label class="text-xs font-semibold text-muted uppercase">Subject / Project Type</label>
+                            <input type="text" id="sender-subject" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="e.g. Klaviyo Template Design & Build">
                         </div>
                         <div class="space-y-2">
-                            <label class="text-xs font-semibold text-gray-300 uppercase">Message</label>
-                            <textarea id="sender-message" rows="5" required class="w-full bg-black border border-borderSubtle rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors resize-none" placeholder="Tell me about your DTC brand and email goals..."></textarea>
+                            <label class="text-xs font-semibold text-muted uppercase">Message</label>
+                            <textarea id="sender-message" rows="5" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors resize-none" placeholder="Tell me about your DTC brand and email goals..."></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 bg-white text-black font-bold text-sm rounded-xl hover:bg-gray-200 transition-all shadow-lg flex items-center justify-center gap-2">
+                        <button type="submit" class="w-full py-4 bg-ink text-white font-bold text-sm rounded-xl hover:bg-black/80 transition-all flex items-center justify-center gap-2">
                             <span>Send Message</span>
                             <i class="fa-solid fa-paper-plane text-xs"></i>
                         </button>
                     </form>
-                    <div id="form-success" class="hidden mt-6 p-4 bg-emerald-950/40 border border-emerald-500/30 rounded-2xl text-emerald-300 text-sm text-center">
+                    <div id="form-success" class="hidden mt-6 p-4 bg-white border border-line rounded-2xl text-ink text-sm text-center">
                         Thank you! Your message has been sent successfully. Vivian will get back to you shortly.
                     </div>
                 </div>
@@ -594,18 +544,18 @@
         </div>
     </section>
 
-    <footer class="py-12 px-6 border-t border-borderSubtle bg-black text-center text-sm text-gray-500">
+    <footer class="py-12 px-6 border-t border-line bg-surface text-center text-sm text-muted">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-2 text-white font-bold">
-                <span class="w-2.5 h-2.5 bg-white rounded-full"></span>
+            <div class="flex items-center gap-2 text-ink font-serif font-semibold">
                 VIVIAN AMADI
             </div>
             <div>
-                &copy; <span id="current-year"></span> Vivian Amadi. All rights reserved. • HTML Email Developer & Deliverability Expert.
+                &copy; <span id="current-year"></span> Vivian Amadi. All rights reserved. &middot; HTML Email Developer & Deliverability Expert.
             </div>
-            <div class="flex items-center gap-4 text-gray-400">
-                <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="mailto:ijeomaamadi100@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            <div class="flex items-center gap-4 text-muted">
+                <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="hover:text-ink transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="hover:text-ink transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
+                <a href="mailto:ijeomaamadi100@gmail.com" class="hover:text-ink transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
             </div>
         </div>
     </footer>
