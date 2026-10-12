@@ -1,636 +1,835 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivian Amadi — Email Designer & HTML Developer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ink: '#0A0A0A',
-                        paper: '#FFFFFF',
-                        surface: '#F1F1EE',
-                        line: '#DBDBD7',
-                        muted: '#5C5C58',
-                        graphite: '#141413',
-                        charcoal: '#1E1E1C',
-                        steel: '#8C8C87',
-                    },
-                    fontFamily: {
-                        serif: ['"Fraunces"', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts: Fraunces (display) + Inter (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #0A0A0A; }
-        h1, h2, h3, .font-serif { font-family: 'Fraunces', serif; }
-        .glass-nav { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F1F1EE; }
-        ::-webkit-scrollbar-thumb { background: #C9C9C5; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #A9A9A5; }
-        .eyebrow { letter-spacing: 0.14em; font-family: ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, monospace; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivian Amadi | Email Designer & HTML Developer for DTC Brands</title>
+<meta name="description" content="I help DTC ecommerce brands design, build and QA email campaigns and lifecycle flows using Klaviyo, Figma and HTML.">
 
-        /* Signature: subtle dot-grid texture for dark sections, evokes a print/proof sheet */
-        .grain-dark {
-            background-color: #0A0A0A;
-            background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
-            background-size: 22px 22px;
-        }
-        .grain-graphite {
-            background-color: #141413;
-            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 22px 22px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* Signature: window-chrome header for the hero "message" card */
-        .chrome-dot { width: 9px; height: 9px; border-radius: 9999px; }
+<style>
+  :root {
+    --cream: #F5EDE4;
+    --ivory: #F8F4F0;
+    --champagne: #E8D5C4;
+    --taupe: #C4A484;
+    --rose: #C97B84;
+    --rose-deep: #B2636C;
+    --dusty: #D4A5A5;
+    --olive: #4A5D3A;
+    --sage: #A3B18A;
+    --brown: #4A3728;
+    --brown-soft: #6E5646;
+    --line: rgba(74, 55, 40, 0.18);
+  }
 
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-            outline: 2px solid #0A0A0A; outline-offset: 2px;
-        }
-        .grain-dark a:focus-visible, .grain-dark button:focus-visible,
-        .grain-graphite a:focus-visible, .grain-graphite button:focus-visible {
-            outline: 2px solid #FFFFFF;
-        }
-    </style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--brown);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--olive); text-underline-offset: 3px; }
+  a:hover { color: var(--brown); }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; margin: 0; letter-spacing: -0.015em; }
+  p { margin: 0; }
+  :focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+  /* Buttons: rose = the thing to click */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 28px; border-radius: 999px; border: 0; cursor: pointer;
+    font: 600 15px/1 'Inter', sans-serif; text-decoration: none;
+    background: var(--rose); color: #fff;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .btn:hover { background: var(--rose-deep); color: #fff; }
+  .btn:active { transform: translateY(1px); }
+  .btn-quiet { background: transparent; color: var(--olive); box-shadow: inset 0 0 0 1.5px var(--olive); }
+  .btn-quiet:hover { background: var(--olive); color: var(--ivory); }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245, 237, 228, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: var(--brown); text-decoration: none; }
+  .nav { display: flex; align-items: center; gap: 32px; }
+  .nav a { font-size: 15px; font-weight: 500; color: var(--olive); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .nav .btn { padding: 11px 22px; font-size: 14px; color: #fff; }
+  .nav .btn:hover { text-decoration: none; }
+  .menu-btn { display: none; background: none; border: 0; color: var(--olive); font-size: 22px; cursor: pointer; padding: 8px; }
+  .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 12px 28px 20px; }
+  .mobile-nav a { display: block; padding: 11px 0; color: var(--olive); font-weight: 500; text-decoration: none; }
+  .mobile-nav.open { display: block; }
+
+  /* Hero */
+  .hero { padding: 96px 0 88px; }
+  .hero h1 {
+    font-size: clamp(2.7rem, 7.6vw, 6.2rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    max-width: 15ch;
+  }
+  .hero h1 .photo {
+    display: inline-block; vertical-align: middle;
+    width: 0.82em; height: 0.82em; border-radius: 50%;
+    overflow: hidden; margin: 0 0.06em; position: relative; top: -0.06em;
+    background: var(--champagne);
+    box-shadow: 0 0 0 4px var(--cream), 0 0 0 5.5px var(--dusty);
+  }
+  .hero h1 .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-bottom {
+    margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--olive);
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end;
+  }
+  .hero-bottom p { font-size: 19px; color: var(--brown-soft); max-width: 48ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-end; align-items: center; }
+  .availability { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--olive); margin-bottom: 28px; }
+  .availability i { width: 9px; height: 9px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px rgba(163,177,138,.35); }
+  .journeys { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .journeys span.label { font-size: 14px; font-weight: 500; color: var(--brown-soft); margin-right: 6px; }
+  .journeys span.pill { font-size: 14px; font-weight: 500; color: var(--brown); background: var(--champagne); padding: 7px 16px; border-radius: 999px; }
+
+  /* Sections */
+  section { padding: 104px 0; }
+  .section-head { margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.1; max-width: 20ch; }
+  .section-head p { margin-top: 16px; color: var(--brown-soft); max-width: 54ch; }
+
+  /* About */
+  .about { background: var(--ivory); }
+  .about-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+  .about-photo { border-radius: 200px 200px 24px 24px; overflow: hidden; background: var(--champagne); aspect-ratio: 4 / 5; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-copy h2 { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.12; margin-bottom: 24px; }
+  .about-copy > p { color: var(--brown-soft); margin-bottom: 18px; }
+  .about-copy .interest { margin-top: 28px; padding-left: 20px; border-left: 2px solid var(--olive); color: var(--brown); }
+
+  /* What I work on */
+  .work-on-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--olive); }
+  .work-col { padding: 32px 28px 8px 0; }
+  .work-col + .work-col { padding-left: 28px; border-left: 1px solid var(--line); }
+  .work-col h3 { font-size: 22px; margin-bottom: 16px; }
+  .work-col ul { list-style: none; margin: 0; padding: 0; color: var(--brown-soft); font-size: 15px; }
+  .work-col li { padding: 7px 0; }
+
+  /* Projects */
+  .projects { background: var(--champagne); }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+  .filter {
+    font: 500 15px/1 'Inter', sans-serif; padding: 12px 22px; border-radius: 999px; cursor: pointer;
+    background: transparent; color: var(--olive); border: 1.5px solid var(--olive);
+    transition: background .2s ease, color .2s ease;
+  }
+  .filter:hover { background: rgba(74, 93, 58, .1); }
+  .filter[aria-pressed="true"] { background: var(--olive); color: var(--ivory); }
+  .filter .count { opacity: .7; margin-left: 6px; font-weight: 400; }
+
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .project {
+    background: var(--ivory); border-radius: 28px 28px 28px 6px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .project[hidden] { display: none; }
+  .project-art { height: 200px; padding: 26px 26px 0; display: flex; align-items: flex-end; justify-content: center; }
+  .mini-email {
+    width: 56%; height: 100%; background: #fff; border-radius: 10px 10px 0 0;
+    padding: 14px 14px 0; display: flex; flex-direction: column; gap: 8px;
+    box-shadow: 0 -2px 18px rgba(74,55,40,.12);
+  }
+  .mini-email i { display: block; border-radius: 3px; background: var(--champagne); }
+  .mini-email .logo { height: 8px; width: 34%; margin: 0 auto 4px; background: var(--brown); opacity: .75; }
+  .mini-email .hero-block { height: 54px; border-radius: 6px; }
+  .mini-email .line { height: 6px; width: 90%; }
+  .mini-email .line.short { width: 60%; }
+  .mini-email .cta { height: 16px; width: 46%; border-radius: 99px; margin-top: 4px; }
+  .art-lume { background: var(--dusty); }
+  .art-lume .hero-block, .art-lume .cta { background: var(--rose); }
+  .art-zuri { background: var(--sage); }
+  .art-zuri .hero-block, .art-zuri .cta { background: var(--olive); }
+  .art-noir { background: var(--brown); }
+  .art-noir .mini-email { background: #2E2119; }
+  .art-noir .mini-email i { background: #5a4538; }
+  .art-noir .logo { background: var(--champagne); }
+  .art-noir .hero-block, .art-noir .cta { background: var(--taupe); }
+  .art-solvibe { background: var(--taupe); }
+  .art-solvibe .hero-block { background: var(--champagne); }
+  .art-solvibe .cta { background: var(--rose); }
+  .art-kova { background: var(--olive); }
+  .art-kova .mini-email .hero-block { background: var(--sage); }
+  .art-kova .cta { background: var(--brown); }
+  .art-audit { background: var(--champagne); }
+  .art-audit .mini-email { box-shadow: 0 -2px 18px rgba(74,55,40,.18); }
+  .art-audit .hero-block { background: var(--dusty); }
+  .art-audit .cta { background: var(--olive); }
+
+  .project-body { padding: 26px 30px 30px; display: flex; flex-direction: column; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { font-size: 13px; font-weight: 600; color: var(--brown); background: var(--dusty); padding: 5px 14px; border-radius: 999px; }
+  .project h3 { font-size: 25px; margin-bottom: 6px; }
+  .project .what { font-weight: 500; color: var(--olive); font-size: 15px; margin-bottom: 14px; }
+  .project ul { list-style: none; padding: 0; margin: 0 0 24px; font-size: 15px; color: var(--brown-soft); }
+  .project li { padding: 9px 0; border-top: 1px solid var(--line); }
+  .project .link { margin-top: auto; font-weight: 600; font-size: 15px; display: inline-flex; gap: 10px; align-items: center; }
+  .grid-note { margin-top: 28px; font-size: 15px; color: var(--brown-soft); }
+  .empty { display: none; padding: 40px 0; color: var(--brown-soft); }
+  .empty.show { display: block; }
+
+  /* Services */
+  .services-list { border-top: 1px solid var(--olive); }
+  .service {
+    display: grid; grid-template-columns: 1.1fr 1.5fr auto; gap: 40px; align-items: start;
+    padding: 40px 0; border-bottom: 1px solid var(--line);
+  }
+  .service h3 { font-size: 28px; line-height: 1.15; }
+  .service .for { margin-top: 8px; font-size: 15px; color: var(--brown-soft); }
+  .service ul { list-style: none; padding: 0; margin: 0; }
+  .service li { padding: 5px 0 5px 22px; position: relative; color: var(--brown-soft); font-size: 15.5px; }
+  .service li::before { content: ''; position: absolute; left: 0; top: 15px; width: 10px; height: 1.5px; background: var(--olive); }
+  .price { text-align: right; min-width: 150px; }
+  .price small { display: block; font-size: 13px; color: var(--brown-soft); }
+  .price strong { font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px; display: block; line-height: 1.2; }
+  .price .btn { margin-top: 14px; padding: 12px 22px; font-size: 14px; }
+  .services-note { margin-top: 28px; font-size: 15px; color: var(--brown-soft); }
+
+  /* Process: a real sequence, so it gets numbers */
+  .process { background: var(--ivory); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
+  .step { padding: 0 28px 0 0; position: relative; }
+  .step::before {
+    counter-increment: step; content: counter(step);
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border-radius: 50%; margin-bottom: 28px;
+    background: var(--olive); color: var(--ivory); font-family: 'Fraunces', serif; font-size: 19px; position: relative; z-index: 1;
+  }
+  .step::after { content: ''; position: absolute; top: 22px; left: 44px; right: 0; height: 1.5px; background: var(--sage); }
+  .step:last-child::after { display: none; }
+  .step h3 { font-size: 22px; margin-bottom: 10px; }
+  .step p { font-size: 15.5px; color: var(--brown-soft); }
+
+  /* Credentials */
+  .cred-list { border-top: 1px solid var(--olive); }
+  .cred { display: grid; grid-template-columns: 1fr 2fr auto; gap: 32px; padding: 28px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .cred h3 { font-size: 22px; }
+  .cred p { color: var(--brown-soft); font-size: 15.5px; }
+  .cred a { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .cred-other { margin-top: 24px; font-size: 15px; color: var(--brown-soft); }
+
+  /* Contact */
+  .contact { background: var(--brown); color: var(--champagne); }
+  .contact h2 { color: var(--ivory); }
+  .contact .section-head p { color: var(--champagne); opacity: .85; }
+  .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; }
+  .contact a { color: var(--champagne); }
+  .contact a:hover { color: #fff; }
+  .contact-lines { list-style: none; margin: 0; padding: 0; }
+  .contact-lines li { padding: 16px 0; border-top: 1px solid rgba(232,213,196,.22); }
+  .contact-lines small { display: block; font-size: 13px; opacity: .65; margin-bottom: 2px; }
+  .form-card { background: var(--ivory); color: var(--brown); border-radius: 28px 28px 6px 28px; padding: 40px; }
+  .form-card h3 { font-size: 26px; margin-bottom: 24px; }
+  .field { margin-bottom: 20px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+  input, textarea {
+    width: 100%; font: 400 16px/1.4 'Inter', sans-serif; color: var(--brown);
+    background: #fff; border: 1.5px solid var(--champagne); border-radius: 14px; padding: 14px 16px;
+    transition: border-color .2s ease;
+  }
+  input::placeholder, textarea::placeholder { color: #A8978B; }
+  input:focus, textarea:focus { outline: none; border-color: var(--olive); }
+  textarea { resize: vertical; min-height: 140px; }
+  .hp { position: absolute; left: -9999px; }
+  .form-card .btn { width: 100%; justify-content: center; padding: 17px; }
+  .form-card .btn[disabled] { opacity: .65; cursor: wait; }
+  .form-status { margin-top: 18px; padding: 14px 16px; border-radius: 14px; font-size: 15px; display: none; }
+  .form-status.show { display: block; }
+  .form-status.ok { background: rgba(163,177,138,.35); color: var(--olive); }
+  .form-status.err { background: rgba(201,123,132,.2); color: #8A3E47; }
+
+  footer { background: var(--brown); color: var(--champagne); border-top: 1px solid rgba(232,213,196,.22); padding: 32px 0; font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  footer a { color: var(--champagne); font-size: 18px; margin-left: 18px; }
+  footer a:hover { color: #fff; }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .nav { display: none; }
+    .menu-btn { display: block; }
+    .hero-bottom, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-actions { justify-content: flex-start; }
+    .about-photo { max-width: 360px; }
+    .work-on-grid { grid-template-columns: 1fr 1fr; }
+    .work-col:nth-child(3) { border-left: 0; padding-left: 0; }
+    .work-col:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 32px; }
+    .steps { grid-template-columns: 1fr 1fr; row-gap: 48px; }
+    .step:nth-child(2)::after { display: none; }
+    .service { grid-template-columns: 1fr; gap: 20px; }
+    .price { text-align: left; }
+    .cred { grid-template-columns: 1fr; gap: 6px; }
+  }
+  @media (max-width: 720px) {
+    .project-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    section { padding: 72px 0; }
+    .hero { padding: 56px 0 64px; }
+    .work-on-grid { grid-template-columns: 1fr; }
+    .work-col, .work-col + .work-col { padding: 28px 0 8px; border-left: 0; }
+    .work-col + .work-col { border-top: 1px solid var(--line); margin-top: 16px; }
+    .steps { grid-template-columns: 1fr; }
+    .step::after { display: none; }
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card { padding: 28px 22px; }
+    .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -28px; padding: 2px 28px 6px; scrollbar-width: none; }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter { flex-shrink: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
 </head>
-<body class="bg-paper text-ink antialiased selection:bg-ink selection:text-white">
+<body>
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-line">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#hero" class="text-lg font-serif font-semibold tracking-tight text-ink flex items-center gap-2">
-                VIVIAN AMADI
-            </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
-                <a href="#about" class="hover:text-ink transition-colors">About</a>
-                <a href="#strengths" class="hover:text-ink transition-colors">Core Strengths</a>
-                <a href="#projects" class="hover:text-ink transition-colors">Projects</a>
-                <a href="#certifications" class="hover:text-ink transition-colors">Certifications</a>
-                <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-ink text-white rounded-lg hover:bg-black/80 transition-all">
-                    Get in Touch
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden text-ink focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
+<header class="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">Vivian Amadi</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#process">How I work</a>
+      <a href="#certifications">Credentials</a>
+      <a href="#contact" class="btn">Get in touch</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#process">How I work</a>
+    <a href="#certifications">Credentials</a>
+    <a href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="availability"><i></i> Available for new projects, working remotely with teams worldwide</p>
+      <h1>
+        Your email marketing has to work
+        <span class="photo"><img src="assets/vivian-headshot.png" alt="Vivian Amadi" onerror="this.onerror=null; this.src='https://placehold.co/300x300/E8D5C4/4A3728?text=VA';"></span>
+        beyond the design file.
+      </h1>
+      <div class="hero-bottom">
+        <p>I'm Vivian. I help DTC ecommerce brands and email teams design, build and QA email campaigns and lifecycle flows using Klaviyo, Figma and HTML.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-quiet">See my work</a>
+          <a href="#contact" class="btn">Start a project</a>
         </div>
-        <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-paper border-b border-line px-6 py-4 space-y-3">
-            <a href="#about" class="block text-ink/80 hover:text-ink font-medium py-1">About</a>
-            <a href="#strengths" class="block text-ink/80 hover:text-ink font-medium py-1">Core Strengths</a>
-            <a href="#projects" class="block text-ink/80 hover:text-ink font-medium py-1">Projects</a>
-            <a href="#certifications" class="block text-ink/80 hover:text-ink font-medium py-1">Certifications</a>
-            <a href="#contact" class="block text-ink/80 hover:text-ink font-medium py-1">Contact</a>
+      </div>
+      <div class="journeys">
+        <span class="label">Lifecycle emails I build:</span>
+        <span class="pill">Welcome</span>
+        <span class="pill">Abandoned cart</span>
+        <span class="pill">Post-purchase</span>
+        <span class="pill">Replenishment</span>
+        <span class="pill">Win-back</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="assets/vivian-working.png" alt="Vivian Amadi working at her desk" onerror="this.onerror=null; this.src='https://placehold.co/600x750/E8D5C4/4A3728?text=Vivian+Amadi';">
+      </div>
+      <div class="about-copy">
+        <h2>Visually on brand, technically sound, ready to perform.</h2>
+        <p>I work across the whole production process: email design, HTML email development, Klaviyo implementation, email QA and deliverability checks.</p>
+        <p>My focus is making sure an email isn't only aligned with your brand, but also responsive, tested in Gmail, Outlook and Apple Mail, and ready to do the job it was sent for.</p>
+        <p class="interest">I'm most interested in what happens before, during and after the click: what the customer needs to understand, what could make them hesitate, what action the email should encourage, and what happens next.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I WORK ON -->
+  <section id="strengths">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What I work on</h2>
+      </div>
+      <div class="work-on-grid">
+        <div class="work-col">
+          <h3>Campaigns and flows</h3>
+          <ul>
+            <li>Klaviyo campaigns and automated flows</li>
+            <li>Klaviyo templates and implementation</li>
+            <li>Dynamic personalisation and segmentation</li>
+            <li>Shopify Liquid order emails</li>
+          </ul>
         </div>
-    </header>
-
-    <section id="hero" class="relative pt-32 pb-20 px-6 grain-dark border-b border-white/10 overflow-hidden">
-        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            <div class="lg:col-span-7 space-y-6 text-left">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs font-mono text-white/70">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                    Status: Available &middot; Remote Worldwide &middot; UTC+1
-                </div>
-                <h1 class="text-4xl sm:text-6xl font-serif font-semibold text-white tracking-tight leading-[1.05]">
-                    Email Designer & HTML Developer <span class="text-white/50 font-normal">for DTC Ecommerce Brands</span>
-                </h1>
-                <p class="text-lg text-white/60 font-normal max-w-2xl leading-relaxed">
-                    Most email templates fall apart somewhere between the design file and the actual inbox. I close that gap; Figma mockup to hand-coded HTML, tested until it holds up everywhere it needs to.
-                </p>
-
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="#projects" class="px-6 py-3.5 bg-white text-ink font-semibold text-sm rounded-xl hover:bg-white/85 transition-all flex items-center gap-2">
-                        <span>View Featured Projects</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="#contact" class="px-6 py-3.5 bg-transparent border border-white/25 text-white font-semibold text-sm rounded-xl hover:bg-white/10 hover:border-white/40 transition-all">
-                        Let's Talk
-                    </a>
-                </div>
-
-                <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-white/10 text-sm">
-                    <div>
-                        <div class="text-white font-serif font-semibold text-xl">100%</div>
-                        <div class="text-white/45 text-xs mt-0.5">Table-Based Code</div>
-                    </div>
-                    <div>
-                        <div class="text-white font-serif font-semibold text-xl">Klaviyo</div>
-                        <div class="text-white/45 text-xs mt-0.5">Certified Expert</div>
-                    </div>
-                    <div>
-                        <div class="text-white font-serif font-semibold text-xl">Zero-Fix</div>
-                        <div class="text-white/45 text-xs mt-0.5">Cross-Client QA</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Photo Card: styled like a message preview -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-md">
-                    <div class="relative bg-charcoal border border-white/10 rounded-3xl overflow-hidden flex flex-col items-center shadow-2xl shadow-black/50">
-
-                        <!-- Window chrome -->
-                        <div class="w-full flex items-center gap-1.5 px-5 py-3.5 border-b border-white/10 bg-white/[0.03]">
-                            <span class="chrome-dot bg-white/20"></span>
-                            <span class="chrome-dot bg-white/20"></span>
-                            <span class="chrome-dot bg-white/20"></span>
-                            <span class="ml-auto text-[10px] font-mono text-white/35 tracking-wide">inbox.html</span>
-                        </div>
-                        <!-- Faux subject line -->
-                        <div class="w-full px-5 py-3 border-b border-white/10 text-[11px] font-mono text-white/40 flex items-center gap-2">
-                            <span class="text-white/25">Subject:</span> Available for your next email project
-                        </div>
-
-                        <div class="w-full p-6 flex flex-col items-center">
-                            <div class="w-full h-72 rounded-2xl bg-white/[0.04] overflow-hidden flex items-end justify-center border border-white/10 relative">
-                                <img src="assets/vivian-working.png" alt="Vivian Amadi at work" class="h-full w-auto object-contain object-bottom" onerror="this.onerror=null; this.src='https://placehold.co/400x480/141413/FFFFFF?text=Vivian+Amadi';">
-                            </div>
-
-                            <div class="w-full mt-6 space-y-3">
-                                <div class="flex items-center justify-between text-xs text-white/40 px-1">
-                                    <span>Direct Contact</span>
-                                    <span class="text-white/80 font-mono">ijeomaamadi100@gmail.com</span>
-                                </div>
-                                <div class="flex items-center justify-between text-xs text-white/40 px-1">
-                                    <span>Phone / WhatsApp</span>
-                                    <span class="text-white/80 font-mono">+234 803 466 1946</span>
-                                </div>
-                                <div class="flex items-center gap-3 pt-2">
-                                    <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="flex-1 py-2.5 bg-white/5 border border-white/10 rounded-xl text-center text-xs font-medium text-white/70 hover:text-white hover:border-white/30 transition-all flex items-center justify-center gap-2">
-                                        <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
-                                    </a>
-                                    <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="flex-1 py-2.5 bg-white/5 border border-white/10 rounded-xl text-center text-xs font-medium text-white/70 hover:text-white hover:border-white/30 transition-all flex items-center justify-center gap-2">
-                                        <i class="fa-brands fa-facebook text-sm"></i> Facebook
-                                    </a>
-                                    <a href="mailto:ijeomaamadi100@gmail.com" class="py-2.5 px-4 bg-white text-ink rounded-xl text-xs font-semibold hover:bg-white/85 transition-all flex items-center justify-center">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="work-col">
+          <h3>Design</h3>
+          <ul>
+            <li>Figma email design</li>
+            <li>Email design systems</li>
+            <li>Mobile-first responsive layout</li>
+            <li>Accessibility and email usability</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="about" class="py-24 px-6 border-b border-line">
-        <div class="max-w-5xl mx-auto space-y-12">
-            <div class="text-center space-y-3">
-                <span class="text-xs uppercase eyebrow text-muted font-semibold">Professional Summary</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Owning the Full Pipeline from Mockup to Inbox</h2>
-            </div>
-
-            <div class="bg-surface border border-line rounded-3xl p-8 sm:p-12 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-                <div class="md:col-span-3 flex justify-center">
-                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-white border border-line overflow-hidden flex items-center justify-center">
-                        <img src="assets/vivian-headshot.png" alt="Portrait of Vivian Amadi" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFFFFF/111111?text=VA';">
-                    </div>
-                </div>
-                <div class="md:col-span-9 space-y-10">
-                    <p class="text-lg text-ink/80 leading-relaxed">
-                        I build and fix email templates for a living, the kind that actually render the way they're supposed to in Gmail, Outlook, and Apple Mail, not just in the preview pane. Design comes first, in Figma or Canva. Then I hand-code it myself: table-based, inline CSS, checked in dark mode and on mobile before it ever reaches a client's list.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-line">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
-                                <i class="fa-solid fa-pen-nib"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-ink font-semibold text-sm">Visual Design</h4>
-                                <p class="text-muted text-xs mt-1">Figma mockups & Canva design systems.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-ink font-semibold text-sm">Bulletproof Build</h4>
-                                <p class="text-muted text-xs mt-1">Table-based HTML, VML fallbacks & Shopify Liquid.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-white border border-line rounded-xl text-ink">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-ink font-semibold text-sm">Deliverability</h4>
-                                <p class="text-muted text-xs mt-1">SPF/DKIM/DMARC audits & spam filter optimization.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="work-col">
+          <h3>Build and QA</h3>
+          <ul>
+            <li>Hand-coded, table-based HTML email</li>
+            <li>Outlook VML and dark-mode rendering fixes</li>
+            <li>Cross-client and responsive testing</li>
+            <li>HTML email signatures and vCard integration</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="strengths" class="py-24 px-6 border-b border-line bg-surface">
-        <div class="max-w-7xl mx-auto space-y-16">
-            <div class="text-center space-y-3">
-                <span class="text-xs uppercase eyebrow text-muted font-semibold">Capabilities</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Core Strengths & Technical Stack</h2>
-                <p class="text-muted max-w-xl mx-auto text-sm">What I actually get hired for, over and over, on DTC email projects.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Strength 1 -->
-                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
-                            <i class="fa-solid fa-palette text-lg"></i>
-                        </div>
-                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Design & Layout</h3>
-                        <ul class="space-y-2 text-sm text-muted">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Figma & Canva workflows</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Email signature development</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Mobile-first responsive layout</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Dark mode CSS overrides</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">UI / UX / Visual</div>
-                </div>
-
-                <!-- Strength 2 -->
-                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
-                            <i class="fa-solid fa-laptop-code text-lg"></i>
-                        </div>
-                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Build & Code</h3>
-                        <ul class="space-y-2 text-sm text-muted">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Hand-coded table-based HTML</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Klaviyo template mastery</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Shopify Liquid tags & filters</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Outlook VML & Cross-QA</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Development</div>
-                </div>
-
-                <!-- Strength 3 -->
-                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
-                            <i class="fa-solid fa-envelopes-bulk text-lg"></i>
-                        </div>
-                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Deliverability</h3>
-                        <ul class="space-y-2 text-sm text-muted">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> SPF/DKIM/DMARC diagnosis</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Spam filter optimization</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Text-to-image ratio tuning</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Netlify custom headers deployment</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Infrastructure</div>
-                </div>
-
-                <!-- Strength 4 -->
-                <div class="bg-white border border-line rounded-2xl p-6 hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="w-11 h-11 bg-surface border border-line rounded-xl flex items-center justify-center text-ink mb-5">
-                            <i class="fa-solid fa-chart-line text-lg"></i>
-                        </div>
-                        <h3 class="text-ink font-serif font-semibold text-lg mb-3">Performance</h3>
-                        <ul class="space-y-2 text-sm text-muted">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Dynamic Liquid variables</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Interactive vCard signature integration</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> Conversion-focused CTAs</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-xs text-ink"></i> GitHub Pages deployment</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-line text-xs text-muted font-mono">Ecommerce Growth</div>
-                </div>
-            </div>
+        <div class="work-col">
+          <h3>Deliverability</h3>
+          <ul>
+            <li>SPF, DKIM and DMARC diagnosis</li>
+            <li>Spam filter optimisation</li>
+            <li>Text-to-image ratio management</li>
+            <li>Inbox placement audits</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="py-24 px-6 border-b border-line">
-        <div class="max-w-7xl mx-auto space-y-16">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div class="space-y-3">
-                    <span class="text-xs uppercase eyebrow text-muted font-semibold">Case Studies</span>
-                    <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Relevant Project Experience</h2>
-                </div>
-                <p class="text-muted text-sm max-w-md">A few real projects that show the actual range — design in Figma, build in Klaviyo, and the deliverability work most people never see.</p>
-            </div>
+  <!-- PROJECTS: filterable 2-column grid -->
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected projects</h2>
+        <p>Design in Figma, build in Klaviyo and Shopify, and the deliverability work most people never see.</p>
+      </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Project 1: LUMÉ Skincare -->
-                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">DTC Skincare</span>
-                            <span class="text-xs font-mono text-muted">Figma → GitHub</span>
-                        </div>
-                        <h3 class="text-xl font-serif font-semibold text-ink">LUMÉ Skincare</h3>
-                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Product Launch Email</p>
-                        <p class="text-sm text-ink/70 leading-relaxed">
-                            Started as a Figma mockup, then got hand-coded from scratch — table-based structure, Google Fonts, and an Outlook VML fix so the button actually worked everywhere.
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-ink/70">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Figma mockup to production HTML</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Outlook VML CTA rendering</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> GitHub Pages live hosting</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
-                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/-lume-skincare-email/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="design" aria-pressed="false">Design</button>
+        <button class="filter" data-filter="klaviyo" aria-pressed="false">Klaviyo</button>
+        <button class="filter" data-filter="build" aria-pressed="false">Build</button>
+        <button class="filter" data-filter="deliverability" aria-pressed="false">Deliverability</button>
+      </div>
 
-                <!-- Project 3: Zuri Wellness -->
-                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Health & Wellness</span>
-                            <span class="text-xs font-mono text-muted">Canva + Klaviyo</span>
-                        </div>
-                        <h3 class="text-xl font-serif font-semibold text-ink">Zuri Wellness Co.</h3>
-                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Klaviyo Template + Ad Creative</p>
-                        <p class="text-sm text-ink/70 leading-relaxed">
-                            Built the Klaviyo template with personalisation that goes beyond a first name, plus matching Canva assets for the rest of the campaign.
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-ink/70">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Klaviyo template & personalisation</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Cleaned exported HTML & VML CTAs</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Multi-channel Canva assets</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
-                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/zuri-wellness-email/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
+      <div class="project-grid" id="project-grid">
 
-                <!-- Project 4: Noir Flow -->
-                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Functional Beverage</span>
-                            <span class="text-xs font-mono text-muted">Dark Premium</span>
-                        </div>
-                        <h3 class="text-xl font-serif font-semibold text-ink">Noir Flow</h3>
-                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Dark Premium Klaviyo Template</p>
-                        <p class="text-sm text-ink/70 leading-relaxed">
-                            Most of this brand's list opens on mobile, so that's what got built for first — a dark, premium template that still holds up on a small screen, with dynamic tags handling the personalisation.
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-ink/70">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Mobile-first dark theme layout</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Dynamic personalisation tags</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Consistent dark visual styling</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
-                        <span class="text-xs font-mono text-ink/70">Live Demo Active</span>
-                        <a href="https://ijay-techwriter.github.io/Noir-Flow/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
+        <!--
+          TO ADD A NEW PROJECT: copy any <article> below and paste it at the end of the grid.
+          Change data-cats to any of: design klaviyo build deliverability (separate with spaces).
+          Add a matching <span class="tag"> for each category you list.
+          To add a new filter tab, add a button above and use its data-filter value in data-cats.
+        -->
 
-                <!-- Project 4: Deliverability Audit -->
-                <div class="bg-white border border-line rounded-3xl p-7 flex flex-col justify-between hover:border-ink/30 hover:shadow-lg hover:shadow-black/5 transition-all">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-medium text-ink/80">Infrastructure & Audit</span>
-                            <span class="text-xs font-mono text-muted">DMARC / Spam Fix</span>
-                        </div>
-                        <h3 class="text-xl font-serif font-semibold text-ink">Deliverability Audit & SolVibe</h3>
-                        <p class="text-xs font-semibold text-muted uppercase tracking-wide">Spam Diagnosis & Order Confirmation</p>
-                        <p class="text-sm text-ink/70 leading-relaxed">
-                            Traced a client's spam problem back to a DMARC misconfiguration showing up across every major mail provider. Then fixed SolVibe's order confirmation email, which had been tripping spam filters from too many images and not enough text.
-                        </p>
-                        <div class="space-y-2 pt-2 text-xs text-ink/70">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> SPF / DKIM / DMARC header analysis</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> 70/30 text-to-image ratio fix</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-ink"></i> Cross-provider inbox placement check</div>
-                        </div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-line flex items-center justify-between">
-                        <span class="text-xs font-mono text-ink/70">Live Case Study</span>
-                        <a href="https://ijay-techwriter.github.io/email-deliverability-diagnosis/" target="_blank" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center hover:bg-black/80 transition-colors"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
+        <article class="project" data-cats="design build">
+          <div class="project-art art-lume">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Design</span><span class="tag">Build</span></div>
+            <h3>LUMÉ Skincare</h3>
+            <p class="what">Product launch email, Figma to HTML</p>
+            <ul>
+              <li>Designed the full launch email visual system in Figma before hand-coding it</li>
+              <li>Table-based HTML with Outlook-safe VML buttons, so the CTA stays clickable everywhere</li>
+              <li>Shipped across Gmail and Outlook with zero rendering fixes after send</li>
+            </ul>
+            <a class="link" href="https://ijay-techwriter.github.io/-lume-skincare-email/" target="_blank" rel="noopener">View the live email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project" data-cats="klaviyo design build">
+          <div class="project-art art-zuri">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Klaviyo</span><span class="tag">Design</span><span class="tag">Build</span></div>
+            <h3>Zuri Wellness Co.</h3>
+            <p class="what">Klaviyo template and multi-channel creative</p>
+            <ul>
+              <li>Klaviyo template with personalisation tags and a two-column product feature block</li>
+              <li>Cleaned exported HTML and added Outlook VML fallbacks for both CTAs</li>
+              <li>Extended the visual system into matching Instagram and Facebook ad creative</li>
+            </ul>
+            <a class="link" href="https://ijay-techwriter.github.io/zuri-wellness-email/" target="_blank" rel="noopener">View the live email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project" data-cats="klaviyo design">
+          <div class="project-art art-noir">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Klaviyo</span><span class="tag">Design</span></div>
+            <h3>Noir Flow</h3>
+            <p class="what">Dark premium Klaviyo template</p>
+            <ul>
+              <li>Built mobile-first, because most of this brand's list opens on a phone</li>
+              <li>Dark, premium look that holds up on a small screen</li>
+              <li>Dynamic tags handle the personalisation</li>
+            </ul>
+            <a class="link" href="https://ijay-techwriter.github.io/Noir-Flow/" target="_blank" rel="noopener">View the live email <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project" data-cats="deliverability build">
+          <div class="project-art art-solvibe">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Deliverability</span><span class="tag">Build</span></div>
+            <h3>SolVibe Apparel</h3>
+            <p class="what">Shopify order confirmation email</p>
+            <ul>
+              <li>Restructured the code to a 70/30 text-to-image ratio, fixing a spam-filter issue that hurt inbox placement</li>
+              <li>Added a 3-product cross-sell grid to turn a transactional email into a repeat-purchase driver</li>
+              <li>Built a mobile-responsive pricing table that stacks cleanly on any device</li>
+            </ul>
+            <a class="link" href="https://ijay-techwriter.github.io/email-deliverability-diagnosis/" target="_blank" rel="noopener">Read the case study <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="project" data-cats="build">
+          <div class="project-art art-kova">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Build</span></div>
+            <h3>KOVA Active</h3>
+            <p class="what">Shopify Liquid order confirmation rebuild</p>
+            <ul>
+              <li>Found a confirmation email sending the same placeholder data to every customer</li>
+              <li>Rebuilt it with dynamic Liquid variables, so each customer sees their own order details</li>
+              <li>Added a conditional VIP message that rewards high-value orders automatically</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project" data-cats="deliverability">
+          <div class="project-art art-audit">
+            <div class="mini-email" aria-hidden="true"><i class="logo"></i><i class="hero-block"></i><i class="line"></i><i class="line short"></i><i class="cta"></i></div>
+          </div>
+          <div class="project-body">
+            <div class="tags"><span class="tag">Deliverability</span></div>
+            <h3>Email deliverability audit</h3>
+            <p class="what">Root-cause diagnosis: SPF, DKIM and DMARC</p>
+            <ul>
+              <li>Compared inbox placement across Gmail, Outlook, Zoho and Yahoo Mail</li>
+              <li>Isolated a DMARC mismatch that looked like a rendering problem</li>
+              <li>Delivered an evidence-backed fix recommendation instead of guessing at code changes</li>
+            </ul>
+            <a class="link" href="https://ijay-techwriter.github.io/email-deliverability-diagnosis/" target="_blank" rel="noopener">Read the case study <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+      </div>
+      <p class="empty" id="empty">No projects in this category yet. New work is added regularly.</p>
+      <p class="grid-note" id="grid-note" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ways we can work together</h2>
+        <p>Tell me the problem you're trying to solve. Prices below are a starting point, and you'll get a clear quote before any work begins.</p>
+      </div>
+
+      <div class="services-list">
+        <!-- EDIT THE PRICES BELOW: replace $XXX with your real starting prices -->
+        <div class="service">
+          <div>
+            <h3>Email design and HTML build</h3>
+            <p class="for">For brands whose emails don't look right, or break in Outlook and dark mode.</p>
+          </div>
+          <ul>
+            <li>Figma email design with clear hierarchy and next action</li>
+            <li>Responsive, hand-coded HTML email</li>
+            <li>Accessible, mobile-first and dark-mode ready</li>
+          </ul>
+          <div class="price">
+            <small>Starting from</small>
+            <strong>$XXX</strong>
+            <small>per template</small>
+            <a href="#contact" class="btn" data-service="Email design and HTML build">Ask about this</a>
+          </div>
         </div>
-    </section>
 
-    <section id="certifications" class="py-24 px-6 border-b border-white/10 grain-graphite">
-        <div class="max-w-5xl mx-auto space-y-16">
-            <div class="text-center space-y-3">
-                <span class="text-xs uppercase eyebrow text-white/40 font-semibold">Credentials</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-white tracking-tight">Education & Certifications</h2>
-                <p class="text-white/50 text-sm">The training behind the work above — not just badges, things I actually use.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Cert 1 -->
-                <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
-                    <div class="space-y-4">
-                        <div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white">
-                            <i class="fa-solid fa-award"></i>
-                        </div>
-                        <h3 class="text-white font-serif font-semibold text-base">Klaviyo Practitioner</h3>
-                        <p class="text-xs text-white/45">Certified by Klaviyo. Campaign architecture, segmentation, and flows setup.</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                        <span class="text-xs font-mono text-white/40">Certified</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Cert 2 -->
-                <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
-                    <div class="space-y-4">
-                        <div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="text-white font-serif font-semibold text-base">HubSpot Email Marketing</h3>
-                        <p class="text-xs text-white/45">HubSpot Academy certified in email marketing and Content Hub software.</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                        <span class="text-xs font-mono text-white/40">Certified</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-
-                <!-- Cert 3 -->
-                <div class="bg-white/[0.04] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/25 transition-all">
-                    <div class="space-y-4">
-                        <div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-                        <h3 class="text-white font-serif font-semibold text-base">HND Business Admin</h3>
-                        <p class="text-xs text-white/45">Covenant Polytechnic &middot; TEFL Certified & self-directed email dev training.</p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                        <span class="text-xs font-mono text-white/40">Graduated</span>
-                        <a href="#contact" class="text-xs font-semibold text-white hover:underline flex items-center gap-1">Verify <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="service">
+          <div>
+            <h3>Klaviyo campaigns and lifecycle flows</h3>
+            <p class="for">For brands that want welcome, cart, post-purchase and win-back emails running well.</p>
+          </div>
+          <ul>
+            <li>Templates, campaigns and automated flows in Klaviyo</li>
+            <li>Dynamic personalisation and segmentation</li>
+            <li>Welcome, abandoned cart, post-purchase, replenishment and win-back journeys</li>
+          </ul>
+          <div class="price">
+            <small>Starting from</small>
+            <strong>$XXX</strong>
+            <small>per project</small>
+            <a href="#contact" class="btn" data-service="Klaviyo campaigns and lifecycle flows">Ask about this</a>
+          </div>
         </div>
-    </section>
 
-    <section id="contact" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-5 space-y-6">
-                <span class="text-xs uppercase eyebrow text-muted font-semibold">Get In Touch</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-ink tracking-tight">Let's Build Emails That Convert.</h2>
-                <p class="text-muted text-sm leading-relaxed">
-                    If your emails need to look better, work better, or actually land in the inbox, that's what I do. Reach out directly, or send a message with the form.
-                </p>
-
-                <div class="space-y-4 pt-4">
-                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
-                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-muted">Email Me</div>
-                            <a href="mailto:ijeomaamadi100@gmail.com" class="text-ink font-medium text-sm hover:underline">ijeomaamadi100@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
-                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-muted">Phone / WhatsApp</div>
-                            <span class="text-ink font-medium text-sm">+234 803 466 1946</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
-                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-muted">LinkedIn Profile</div>
-                            <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="text-ink font-medium text-sm hover:underline">linkedin.com/in/vivian-amadi-ijeoma</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
-                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
-                            <i class="fa-brands fa-facebook"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-muted">Facebook Profile</div>
-                            <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="text-ink font-medium text-sm hover:underline">facebook.com/vivian.amadi</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 bg-surface border border-line rounded-2xl">
-                        <div class="w-10 h-10 bg-white border border-line rounded-xl flex items-center justify-center text-ink">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-muted">Availability</div>
-                            <span class="text-ink font-medium text-sm">Remote &middot; Global Teams &middot; Available Immediately</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-7">
-                <div class="bg-surface border border-line rounded-3xl p-8 sm:p-10">
-                    <h3 class="text-xl font-serif font-semibold text-ink mb-6">Send a Direct Message</h3>
-                    <form id="contact-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label class="text-xs font-semibold text-muted uppercase">Your Name</label>
-                                <input type="text" id="sender-name" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="e.g. Sarah Jenkins">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs font-semibold text-muted uppercase">Your Email</label>
-                                <input type="email" id="sender-email" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="sarah@dtcbrand.com">
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-xs font-semibold text-muted uppercase">Subject / Project Type</label>
-                            <input type="text" id="sender-subject" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors" placeholder="e.g. Klaviyo Template Design & Build">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-xs font-semibold text-muted uppercase">Message</label>
-                            <textarea id="sender-message" rows="5" required class="w-full bg-white border border-line rounded-xl px-4 py-3 text-sm text-ink focus:outline-none focus:border-ink transition-colors resize-none" placeholder="Tell me about your DTC brand and email goals..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-4 bg-ink text-white font-bold text-sm rounded-xl hover:bg-black/80 transition-all flex items-center justify-center gap-2">
-                            <span>Send Message</span>
-                            <i class="fa-solid fa-paper-plane text-xs"></i>
-                        </button>
-                    </form>
-                    <div id="form-success" class="hidden mt-6 p-4 bg-white border border-line rounded-2xl text-ink text-sm text-center">
-                        Thank you! Your message has been sent successfully. Vivian will get back to you shortly.
-                    </div>
-                </div>
-            </div>
+        <div class="service">
+          <div>
+            <h3>Email QA and deliverability audit</h3>
+            <p class="for">For teams that want an email checked before it ships, or fixed when it lands in spam.</p>
+          </div>
+          <ul>
+            <li>Rendering, links, personalisation and accessibility checks</li>
+            <li>SPF, DKIM and DMARC diagnosis</li>
+            <li>Written findings with clear next steps</li>
+          </ul>
+          <div class="price">
+            <small>Starting from</small>
+            <strong>$XXX</strong>
+            <small>per audit</small>
+            <a href="#contact" class="btn" data-service="Email QA and deliverability audit">Ask about this</a>
+          </div>
         </div>
-    </section>
+      </div>
+      <p class="services-note">Need something else, like an HTML email signature with vCard? Tell me what you need and I'll quote it.</p>
+    </div>
+  </section>
 
-    <footer class="py-12 px-6 border-t border-white/10 grain-dark text-center text-sm text-white/45">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-2 text-white font-serif font-semibold">
-                VIVIAN AMADI
-            </div>
-            <div>
-                &copy; <span id="current-year"></span> Vivian Amadi. All rights reserved. &middot; HTML Email Developer & Deliverability Expert.
-            </div>
-            <div class="flex items-center gap-4 text-white/45">
-                <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
-                <a href="mailto:ijeomaamadi100@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
-            </div>
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How I work</h2>
+        <p>Four steps, from the first look at your email to the day it ships.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Diagnose</h3>
+          <p>I look at the email, the customer journey, the implementation, rendering and deliverability before recommending any changes.</p>
         </div>
-    </footer>
+        <div class="step">
+          <h3>Design</h3>
+          <p>I create clear email layouts in Figma, with purposeful hierarchy, responsive structure, accessibility and a clear next action.</p>
+        </div>
+        <div class="step">
+          <h3>Build</h3>
+          <p>I turn approved designs into responsive HTML email and set up campaigns or lifecycle flows in Klaviyo.</p>
+        </div>
+        <div class="step">
+          <h3>QA</h3>
+          <p>I test rendering, responsiveness, links, personalisation, accessibility and dark mode before an email ships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Set current year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+  <!-- CREDENTIALS -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Certifications</h2>
+        <p>Klaviyo certifications you can verify yourself.</p>
+      </div>
+      <div class="cred-list">
+        <div class="cred">
+          <h3>Klaviyo Practitioner</h3>
+          <p>Campaign architecture, segmentation and flow setup.</p>
+          <a href="https://credential.klaviyo.com/3093938c-b2d4-43e0-a310-c6669a8f69bd#acc.hKH28A6D" target="_blank" rel="noopener">View credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="cred">
+          <h3>Klaviyo Deliverability</h3>
+          <p>Authentication, inbox placement and sender reputation.</p>
+          <a href="https://credential.klaviyo.com/181e73e1-f348-4b44-a71d-bfd4db549dd8#acc.f0nd1EKA" target="_blank" rel="noopener">View credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+        <div class="cred">
+          <h3>Klaviyo Developer</h3>
+          <p>Custom templates, dynamic content and technical implementation.</p>
+          <a href="https://credential.klaviyo.com/e90bbb78-e267-4784-8a92-55d146d0ec21#acc.fdMXtoCT" target="_blank" rel="noopener">View credential <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <!-- Other training from the old portfolio. Delete this line if you no longer want it shown. -->
+      <p class="cred-other">Also: HubSpot Academy email marketing certification, HND Business Administration (Covenant Polytechnic) and TEFL certification.</p>
+    </div>
+  </section>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="section-head">
+          <h2>Tell me the problem you're trying to solve.</h2>
+          <p>Need help designing, building or QAing an ecommerce email campaign or lifecycle flow? Send me a message and I'll reply within two working days.</p>
+        </div>
+        <ul class="contact-lines">
+          <li><small>Email</small><a href="mailto:ijeomaamadi100@gmail.com">ijeomaamadi100@gmail.com</a></li>
+          <li><small>Phone and WhatsApp</small><a href="tel:+2348034661946">+234 803 466 1946</a></li>
+          <li><small>LinkedIn</small><a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" rel="noopener">linkedin.com/in/vivian-amadi-ijeoma</a></li>
+          <li><small>Facebook</small><a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" rel="noopener">facebook.com/vivian.amadi</a></li>
+          <li><small>Availability</small>Remote, worldwide, available immediately</li>
+        </ul>
+      </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+      <div class="form-card">
+        <h3>Send me a message</h3>
+        <!-- REPLACE YOUR_FORM_ID with the ID from formspree.io (looks like xyzabcde) -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Sarah Jenkins">
+            </div>
+            <div class="field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="sarah@yourbrand.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="subject">What do you need?</label>
+            <input type="text" id="subject" name="subject" required placeholder="Klaviyo welcome flow, email template, deliverability audit">
+          </div>
+          <div class="field">
+            <label for="message">What problem are you trying to solve?</label>
+            <textarea id="message" name="message" required placeholder="What you sell, who your customers are, and what isn't working in your emails right now."></textarea>
+          </div>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn" id="submit-btn">Send message</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
 
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+</main>
 
-        // Form submission handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const successBox = document.getElementById('form-success');
-            successBox.classList.remove('hidden');
-            document.getElementById('contact-form').reset();
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> Vivian Amadi. Email designer and HTML developer.</span>
+    <span>
+      <a href="https://linkedin.com/in/vivian-amadi-ijeoma" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61591606059344" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="mailto:ijeomaamadi100@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </span>
+  </div>
+</footer>
 
-            setTimeout(() => {
-                successBox.classList.add('hidden');
-            }, 6000);
-        }
-    </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Project filters
+  const filterButtons = [...document.querySelectorAll('.filter')];
+  const projects = [...document.querySelectorAll('#project-grid .project')];
+  const emptyMsg = document.getElementById('empty');
+  const gridNote = document.getElementById('grid-note');
+
+  function countFor(key) {
+    return key === 'all' ? projects.length : projects.filter(p => p.dataset.cats.split(' ').includes(key)).length;
+  }
+
+  // Show a count on each tab, so people know what's inside before clicking
+  filterButtons.forEach(btn => {
+    const span = document.createElement('span');
+    span.className = 'count';
+    span.textContent = countFor(btn.dataset.filter);
+    btn.appendChild(span);
+  });
+
+  function applyFilter(key) {
+    let shown = 0;
+    projects.forEach(p => {
+      const match = key === 'all' || p.dataset.cats.split(' ').includes(key);
+      p.hidden = !match;
+      if (match) shown++;
+    });
+    filterButtons.forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === key));
+    emptyMsg.classList.toggle('show', shown === 0);
+    gridNote.textContent = shown === 0 ? '' : 'Showing ' + shown + (shown === 1 ? ' project' : ' projects') + '.';
+  }
+
+  filterButtons.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+  applyFilter('all');
+
+  // Pre-fill the subject when someone clicks "Ask about this" on a service
+  document.querySelectorAll('[data-service]').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('subject').value = a.dataset.service;
+  }));
+
+  // Contact form, sent through Formspree
+  const form = document.getElementById('contact-form');
+  const statusBox = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function showStatus(kind, text) {
+    statusBox.className = 'form-status show ' + kind;
+    statusBox.textContent = text;
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        showStatus('ok', 'Message sent. Thank you, I will reply within two working days.');
+      } else {
+        showStatus('err', 'Your message did not send. Please try again, or email me directly at ijeomaamadi100@gmail.com.');
+      }
+    } catch (err) {
+      showStatus('err', 'Your message did not send. Check your connection and try again, or email me at ijeomaamadi100@gmail.com.');
+    }
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send message';
+  });
+</script>
 </body>
 </html>
